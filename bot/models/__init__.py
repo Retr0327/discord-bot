@@ -1,4 +1,4 @@
-from .discord import Bot
+from .discord import DiscordClient
 
 
-__all__ = ["Bot"]
+__all__ = ["DiscordClient"]
