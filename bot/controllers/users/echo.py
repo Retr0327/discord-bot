@@ -21,7 +21,8 @@ def handle_echo(client: DiscordClient, guild: int):
         if interaction.user == client.user:
             return
         username = interaction.user
-        await interaction.response.defer(ephemeral=False)
-        await interaction.followup.send(f'❗**{username}** says "{message}"')
+        await interaction.response.send_message(
+            f':wave: **{username}** says "{message}"',
+        )
 
     return echo
