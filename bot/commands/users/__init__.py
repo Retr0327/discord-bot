@@ -1,3 +1,4 @@
+from .ban import UserBan
 from .echo import UserEcho
 
-__all__ = ['UserEcho']
+__all__ = ["UserBan", "UserEcho"]
