@@ -1,5 +1,5 @@
 from models import DiscordClient
-from discord import Object, Interaction
+from discord import utils, Object, Interaction
 
 
 def handle_create_channel(client: DiscordClient, guild: int):
@@ -18,10 +18,17 @@ def handle_create_channel(client: DiscordClient, guild: int):
         guild=Object(id=guild),
     )
     async def create_channel(interaction: Interaction, *, channel_name: str):
-        await interaction.guild.create_text_channel(name=channel_name.strip())
-        await interaction.response.defer(ephemeral=False)
-        await interaction.followup.send(
-            f":star: New channel **{channel_name}** is created!"
-        )
+        channel = utils.get(interaction.guild.text_channels, name=channel_name)
+
+        if channel is not None:
+            await interaction.response.send_message(
+                f":no_entry: **{channel_name}** already exists!",
+            )
+        else:
+            await interaction.guild.create_text_channel(name=channel_name.strip())
+            await interaction.response.defer(ephemeral=False)
+            await interaction.followup.send(
+                f":star: New channel **{channel_name}** is created!"
+            )
 
     return create_channel
