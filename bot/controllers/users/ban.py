@@ -3,7 +3,7 @@ from models import DiscordClient
 from discord import Object, Member, Interaction
 
 template = {
-    "member": "Dear {}, you have been banned from {}\nReason: {}",
+    "member": "Dear {}, you have been banned from **{}**\nReason: {}",
     "channel": "**{}** has been banned!\nReason: {}",
 }
 
