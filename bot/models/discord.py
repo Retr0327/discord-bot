@@ -7,7 +7,7 @@ class DiscordClient(Client):
     """
 
     def __init__(self) -> None:
-        intents = Intents.default()
+        intents = Intents.default().all()
         intents.message_content = True
         super().__init__(intents=intents)
         self.tree = app_commands.CommandTree(self)
