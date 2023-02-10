@@ -1,8 +1,7 @@
 from typing import Optional
-from config import get_env
 from models import DiscordClient
 from discord.ext.commands import Cog
-from discord import app_commands, Interaction, Object, Member
+from discord import app_commands, Interaction, Member
 
 template = {
     "member": "Dear {}, you have been banned from **{}**\nReason: {}",
@@ -33,6 +32,3 @@ class UserBan(Cog):
         await interaction.response.send_message(channel_msg)
         await member.ban()
 
-
-async def setup(bot: DiscordClient) -> None:
-    await bot.add_cog(UserBan(bot), guild=Object(id=get_env("guild")))

@@ -1,8 +1,7 @@
 from typing import Optional
-from config import get_env
 from models import DiscordClient
 from discord.ext.commands import Cog
-from discord import app_commands, Interaction, Object, Member
+from discord import app_commands, Interaction, Member
 
 
 class UserKickOff(Cog):
@@ -18,7 +17,3 @@ class UserKickOff(Cog):
         )
         await interaction.response.send_message(f":people_hugging: Adios **{member}**")
         await member.kick(reason=reason)
-
-
-async def setup(bot: DiscordClient) -> None:
-    await bot.add_cog(UserKickOff(bot), guild=Object(id=get_env("guild")))
