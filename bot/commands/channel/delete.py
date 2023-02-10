@@ -11,7 +11,7 @@ class TextChannelRemover(Cog):
         name="rm_text_channel", description="Delete an existing text channel"
     )
     async def delete(self, interaction: Interaction, *, channel: TextChannel):
-        self.bot.get_channel(channel.id).delete()
+        await channel.delete()
         await interaction.response.defer(ephemeral=False)
         await interaction.followup.send(
             f":information_source: Channel **{channel.name}** deleted successfully!"
