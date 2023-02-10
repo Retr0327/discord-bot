@@ -1,9 +1,14 @@
 import asyncio
-from config import TOKEN
-from models import DiscordClient
+from models.sql import init_db
+from models.discord import DiscordClient
+from config import TOKEN, DB_PATH, make_db_dir
 
 
-async def run_discord_bot():
+async def run_discord_bot() -> None:
+    if not DB_PATH.is_file():
+        make_db_dir()
+        init_db()
+
     client = DiscordClient()
     async with client:
         await client.load_extension("commands.setup")
