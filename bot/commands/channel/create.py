@@ -1,7 +1,6 @@
-from config import get_env
 from models import DiscordClient
 from discord.ext.commands import Cog
-from discord import utils, app_commands, Interaction, Object
+from discord import utils, app_commands, Interaction
 
 
 class TextChannelCreator(Cog):
@@ -26,7 +25,3 @@ class TextChannelCreator(Cog):
             await interaction.followup.send(
                 f":star: New channel **{channel_name}** is created!"
             )
-
-
-async def setup(bot: DiscordClient) -> None:
-    await bot.add_cog(TextChannelCreator(bot), guild=Object(id=get_env("guild")))

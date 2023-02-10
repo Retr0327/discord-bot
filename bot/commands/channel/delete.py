@@ -1,7 +1,6 @@
-from config import get_env
 from models import DiscordClient
 from discord.ext.commands import Cog
-from discord import utils, app_commands, Interaction, Object
+from discord import utils, app_commands, Interaction
 
 
 class TextChannelRemover(Cog):
@@ -25,7 +24,3 @@ class TextChannelRemover(Cog):
             await interaction.followup.send(
                 f":information_source: Channel **{channel_name}** deleted successfully!"
             )
-
-
-async def setup(bot: DiscordClient) -> None:
-    await bot.add_cog(TextChannelRemover(bot), guild=Object(id=get_env("guild")))

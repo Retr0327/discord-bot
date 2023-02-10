@@ -1,7 +1,6 @@
-from config import get_env
 from models import DiscordClient
 from discord.ext.commands import Cog
-from discord import app_commands, Object, Interaction
+from discord import app_commands, Interaction
 
 
 class ChatHistoryClearer(Cog):
@@ -19,7 +18,3 @@ class ChatHistoryClearer(Cog):
     async def clear(self, interaction: Interaction):
         await interaction.response.defer(ephemeral=False)
         await interaction.channel.purge()
-
-
-async def setup(bot: DiscordClient) -> None:
-    await bot.add_cog(ChatHistoryClearer(bot), guild=Object(id=get_env("guild")))
