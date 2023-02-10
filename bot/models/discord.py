@@ -1,5 +1,5 @@
 from log import setup_logger
-from config import BOT_PREFIX, get_env
+from config import BOT_PREFIX, GUILD
 from discord.ext.commands import Bot, when_mentioned_or
 from discord import Intents, Activity, ActivityType, Object
 
@@ -22,5 +22,5 @@ class DiscordClient(Bot):
         logger.info("⚡️[bot] Ready to accept connections")
 
     async def setup_hook(self) -> None:
-        await self.tree.sync(guild=Object(id=get_env("guild")))
+        await self.tree.sync(guild=Object(id=GUILD))
         logger.info("⚡️[bot] Slash commands synced!")
