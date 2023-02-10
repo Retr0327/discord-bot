@@ -1,6 +1,6 @@
 from models.discord import DiscordClient
 from discord.ext.commands import Cog
-from discord import utils, app_commands, Interaction
+from discord import app_commands, Interaction, TextChannel
 
 
 class TextChannelRemover(Cog):
@@ -10,17 +10,9 @@ class TextChannelRemover(Cog):
     @app_commands.command(
         name="rm_text_channel", description="Delete an existing text channel"
     )
-    async def delete(self, interaction: Interaction, *, channel_name: str):
-        channel = utils.get(interaction.guild.text_channels, name=channel_name)
-
-        if channel is None:
-            await interaction.response.defer(ephemeral=False)
-            await interaction.followup.send(
-                f":warning: Channel **{channel_name}** not found!"
-            )
-        else:
-            await self.bot.get_channel(channel.id).delete()
-            await interaction.response.defer(ephemeral=False)
-            await interaction.followup.send(
-                f":information_source: Channel **{channel_name}** deleted successfully!"
-            )
+    async def delete(self, interaction: Interaction, *, channel: TextChannel):
+        self.bot.get_channel(channel.id).delete()
+        await interaction.response.defer(ephemeral=False)
+        await interaction.followup.send(
+            f":information_source: Channel **{channel.name}** deleted successfully!"
+        )
