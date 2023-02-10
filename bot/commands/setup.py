@@ -1,7 +1,7 @@
 import asyncio
 import discord
 from config import GUILD
-from models import DiscordClient
+from models.discord import DiscordClient
 from .users import UserBan, UserKickOff, UserEcho
 from .channel import ChatHistoryClearer, TextChannelCreator, TextChannelRemover
 

@@ -1,4 +1,4 @@
-from models import DiscordClient
+from models.discord import DiscordClient
 from discord.ext.commands import Cog
 from discord import app_commands, Interaction
 
