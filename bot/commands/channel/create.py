@@ -17,7 +17,7 @@ class TextChannelCreator(Cog):
 
         if channel is not None:
             await interaction.response.send_message(
-                f":no_entry: **{channel_name}** already exists!",
+                f":man_gesturing_no: Channel **{channel_name}** already exists!",
             )
         else:
             await interaction.guild.create_text_channel(name=channel_name.strip())
