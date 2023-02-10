@@ -1,6 +1,6 @@
 from models.discord import DiscordClient
 from discord.ext.commands import Cog
-from discord import app_commands, Interaction
+from discord import app_commands, Interaction, TextChannel
 
 
 class ChatHistoryClearer(Cog):
@@ -15,6 +15,9 @@ class ChatHistoryClearer(Cog):
         name="clear",
         description="Delete all messages in a text channel.",
     )
-    async def clear(self, interaction: Interaction):
+    async def clear(self, interaction: Interaction, *, channel_name: TextChannel):
         await interaction.response.defer(ephemeral=False)
-        await interaction.channel.purge()
+        await channel_name.purge()
+        await interaction.followup.send(
+            f":broom: Channel **{channel_name}** chat history has been cleared!"
+        )
