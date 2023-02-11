@@ -1,8 +1,8 @@
-from typing import List
+from typing import List, Union
 from models.sql import query
 
 
-def create_scheduler(data: List[str]) -> None:
+def create_scheduler(data: List[str]) -> List[Union[tuple, None]]:
     """The create_scheduler function writes data to the table schedule_message.
 
     Args:
@@ -16,4 +16,4 @@ def create_scheduler(data: List[str]) -> None:
     )
     VALUES (?, ?, ?);
     """
-    query(sql_raw, data)
+    return query(sql_raw, data)
