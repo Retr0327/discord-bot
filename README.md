@@ -27,7 +27,16 @@ This project builds a simple Discord bot which was designed to make our Discord 
   cd discord-bot && pip install -r requirements.txt
   ```
 
-### 2. Start the bot
+### 2. Environment variables
+Please create a `.env` file under the current folder `/discord-bot`:
+
+```env
+TOKEN=[discord-bot-token]
+GUILD=[discord-channel-id]
+```
+
+
+### 3. Start the bot
 There are two main ways to run the bot: 
 
 - in Python
