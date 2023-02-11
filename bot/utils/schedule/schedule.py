@@ -13,4 +13,4 @@ async def schedule_message(channel: TextChannel, message: str, event_time: int) 
     """
     while True:
         await channel.send(message)
-        await asyncio.sleep(event_time)
+        await asyncio.sleep(event_time * 60)
