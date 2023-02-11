@@ -2,8 +2,14 @@ import asyncio
 import discord
 from config import GUILD
 from models.discord import DiscordClient
+from .channel import (
+    ChatHistoryClearer,
+    TextChannelCreator,
+    TextChannelRemover,
+    ChannelMessageSender,
+    TextChannelBrodcaster,
+)
 from .users import UserBan, UserKickOff, UserEcho
-from .channel import ChatHistoryClearer, TextChannelCreator, TextChannelRemover
 
 plugins = [
     UserBan,
@@ -12,6 +18,8 @@ plugins = [
     ChatHistoryClearer,
     TextChannelCreator,
     TextChannelRemover,
+    ChannelMessageSender,
+    TextChannelBrodcaster,
 ]
 
 
