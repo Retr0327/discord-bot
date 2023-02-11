@@ -12,5 +12,5 @@ async def schedule_message(channel: TextChannel, message: str, event_time: int) 
         event_time (int): the number of seconds to wait before sending the message again
     """
     while True:
-        await channel.send(message)
         await asyncio.sleep(event_time * 60)
+        await channel.send(message)
