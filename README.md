@@ -31,6 +31,7 @@ This project builds a simple Discord bot which was designed to make our Discord 
 There are two main ways to run the bot: 
 
 - in Python
+- 
   First make sure you are in the `discord-bot` folder, and then simply run:
 
   ```bash 
@@ -42,6 +43,7 @@ There are two main ways to run the bot:
   ```
 
 - run in Docker
+- 
   Install Docker, and use the following command to run:
 
   ```bash
