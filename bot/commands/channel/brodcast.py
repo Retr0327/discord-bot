@@ -1,4 +1,5 @@
 from models.discord import DiscordClient
+from utils import convert_to_number
 from utils.schedule import schedule_message
 from discord.ext.commands import Cog
 from discord import app_commands, Interaction, TextChannel
@@ -44,18 +45,28 @@ class TextChannelBrodcaster(Cog):
         *,
         channel: TextChannel,
         message: str,
-        minutes: int
+        minutes: str
     ):
+        event_time = convert_to_number(minutes)
+
+        if not event_time:
+            await interaction.response.send_message(
+                ":man_gesturing_no: Argument `minutes` must be numeric!",
+                ephemeral=False,
+            )
+            return
+
         try:
-            create_scheduler([message, channel.id, minutes])
+            create_scheduler([channel.id, message, event_time])
             task = self.bot.loop.create_task(
-                schedule_message(message, channel.id, minutes), name=channel.id
+                schedule_message(channel, message, event_time), name=channel.id
             )
             self.bot.tasks.append(task)
             await interaction.response.send_message(
                 ":star_struck: Message scheduled successfully!", ephemeral=False
             )
-        except Exception:
+        except Exception as error:
+            print(error)
             await interaction.response.send_message(
                 ":man_bowing: Cannot schedule message! Try again!", ephemeral=False
             )
