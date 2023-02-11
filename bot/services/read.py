@@ -1,7 +1,7 @@
 from models.sql import query
 
 
-def get_scheduler():
+def get_schedulers():
     sql_row = "SELECT * FROM scheduler"
     return query(sql_row)
 
