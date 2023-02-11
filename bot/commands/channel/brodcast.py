@@ -26,10 +26,13 @@ class TextChannelBrodcaster(Cog):
             return
 
         delete_scheduler(channel.id)
-        for task in self.bot.tasks:
-            if int(task.get_name()) == channel.id:
-                task.cancel()
-                self.bot.tasks.remove(task)
+
+        selected_tasks = [
+            task for task in self.bot.tasks if int(task.get_name()) == channel.id
+        ]
+        for task in selected_tasks:
+            self.bot.tasks.remove(task)
+            task.cancel()
 
         await interaction.response.send_message(
             ":star_struck: Message unscheduled successfully!", ephemeral=False
