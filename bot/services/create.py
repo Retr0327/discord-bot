@@ -10,8 +10,8 @@ def create_scheduler(data: List[str]) -> List[Union[tuple, None]]:
     """
     sql_raw = """
     INSERT INTO scheduler (
-        message,
         cid,
+        message,
         next_event_time
     )
     VALUES (?, ?, ?);
