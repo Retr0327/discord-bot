@@ -93,7 +93,7 @@ flowchart RL
       DB -- Operation complete --> C
 ```
 
-If a user brodcast a message to a specific channel, the Discord bot will register the task to its event loop. When restarting, the bot checks the database for any pending tasks and, if present, adds them to its event loop.
+When a user broadcasts a message to a particular channel, the Discord bot logs the task in its event loop. Upon restart, the bot examines the database for any pending tasks and incorporates them into the loop if any are found.
  
 
 #### `/unbrodcast <channel>`
