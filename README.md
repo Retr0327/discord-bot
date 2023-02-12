@@ -10,8 +10,8 @@ This project builds a simple Discord bot which was designed to make our Discord 
 - `/brodcast <channel> <message> <minutes>`: Send the scheduled message to a channel
 - `/unbrodcast <channel>`: Remove the scheduled message from a channel
 - `/clear <channel>`: Clear the chat history of a channel
-- `/create <channel>`: Create a channel
-- `/delete <channel>`: Delete a channel
+- `/text_channel <channel>`: Create a channel
+- `/rm_text_channel <channel>`: Delete a channel
 - `/send_to <channel> <message>`: Send the message to a specific channel
 
 > `[arg]`: optional argument; `<arg>`: required arugment
@@ -102,10 +102,10 @@ Remove the scheduled message from a channel. In other words, the Discord bot wil
 #### `/clear <channel>`
 Clear the chat history of a specific channel.
 
-#### `/create <channel>`
+#### `/text_channel <channel>`
 Create a Discord text channel.
 
-#### `/delete <channel>`
+#### `/rm_text_channel <channel>`
 Delete a Discord text channel.
 
 #### `/send_to <channel> <message>` 
