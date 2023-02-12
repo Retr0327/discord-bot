@@ -14,7 +14,7 @@ def handle_console() -> logging.StreamHandler:
     return console_handler
 
 
-def create_file_handler(log_path: str) -> RotatingFileHandler:
+def handle_create_file(log_path: str) -> RotatingFileHandler:
     config = {
         "filename": log_path,
         "encoding": "utf-8",
@@ -36,6 +36,6 @@ def setup_logger(module_name: str) -> logging.Logger:
     logger.setLevel(logging.INFO)
     logger.addHandler(handle_console())
     if not is_production:
-        logger.addHandler(create_file_handler(LOG_PATH))
+        logger.addHandler(handle_create_file(LOG_PATH))
 
     return logger
