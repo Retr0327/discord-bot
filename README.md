@@ -18,15 +18,22 @@ This project builds a simple Discord bot which was designed to make our Discord 
 
 ## **Setup**
 ### 1. Installation
-- Installation
-- Clone repository
-  ```bash
-  git clone git@github.com:Retr0327/discord-bot.git
-  ```
-- Install Requirement
-  ```
-  cd discord-bot && pip install -r requirements.txt
-  ```
+
+
+1. Python version
+   * `python >= 3.10`
+
+2. Clone repository
+
+    ```bash
+    git clone git@github.com:Retr0327/discord-bot.git
+    ```
+
+3. Install Requirement
+   
+    ```bash
+    cd discord-bot && pip install -r requirements.txt
+    ```
 
 ### 2. Environment variables
 Please create a `.env` file under the current folder `/discord-bot`:
