@@ -120,4 +120,4 @@ Send the message to a specific channel.
 
 
 ## Contact Me
-If you have any suggestion or question, please do not hesitate to email me at lixing.dev@gmail.com
+If you have any suggestion or question, please do not hesitate to email me at lixingyang.dev@gmail.com
